@@ -2,26 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <!-- 视口：移动端自适应 -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MGFDK: Multi-Modal Gait Fusion for Depression Knowledge</title>
+  <title>MGFKD: Multi-modal Gait Fusion with Knowledge Distillation for Depression Recognition</title>
   <meta name="description" content="Project page for MGFDK. Clean, single-file template for GitHub Pages." />
-  <!-- Favicon (optional) -->
+  <!-- 网页图标：替换为你自己的 assets/favicon.png -->
   <link rel="icon" href="./assets/favicon.png" />
+
   <style>
+    /* =========================
+       主题变量（浅色模式）
+       - 想改背景色就改 --bg
+       - 想改文字主色就改 --fg
+       - 想改品牌色就改 --brand / --brand-2
+       ========================= */
     :root{
-      --bg: #ffffff;
-      --fg: #0f172a; /* slate-900 */
-      --muted: #475569; /* slate-600 */
-      --soft: #f1f5f9; /* slate-100 */
-      --line: #e2e8f0; /* slate-200 */
-      --brand: #2563eb; /* blue-600 */
-      --brand-2: #0ea5e9; /* sky-500 */
-      --card: #ffffff;
-      --code: #111827; /* gray-900 */
+      --bg: #ffffff;      /* ← 页面背景色（浅色）*/
+      --fg: #0f172a;      /* 主文字颜色 */
+      --muted: #475569;   /* 次要文字颜色 */
+      --soft: #f1f5f9;    /* 浅色块背景 */
+      --line: #e2e8f0;    /* 分割线颜色 */
+      --brand: #2563eb;   /* 品牌主色 */
+      --brand-2: #0ea5e9; /* 品牌辅色（很少用到）*/
+      --card: #ffffff;    /* 卡片背景 */
+      --code: #111827;    /* 代码文字颜色 */
     }
+
+    /* =========================
+       深色模式（跟随系统）
+       - 深色背景改这里的 --bg
+       ========================= */
     @media (prefers-color-scheme: dark){
       :root{
-        --bg:#0b1020;
+        --bg:#0b1020;     /* ← 页面背景色（深色）*/
         --fg:#e5e7eb;
         --muted:#94a3b8;
         --soft:#0f172a;
@@ -32,48 +45,100 @@
         --code:#e5e7eb;
       }
     }
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";}
+
+    /* 全局基础样式 */
+    html,body{
+      margin:0;padding:0;
+      background:var(--bg); /* ← 背景实际应用点 */
+      color:var(--fg);
+      font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
     *{box-sizing:border-box}
     a{color:var(--brand);text-decoration:none}
     a:hover{text-decoration:underline}
+
+    /* 页面最大宽度容器 */
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+    /* 置顶导航条 */
     .nav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
     .nav .container{display:flex;align-items:center;gap:20px;justify-content:space-between;height:60px}
     .brand{font-weight:700;letter-spacing:.2px}
     .nav a{color:var(--fg)}
     .nav ul{display:flex;gap:16px;list-style:none;padding:0;margin:0}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--fg);text-decoration:none;font-weight:600}
+
+    /* 通用按钮样式 */
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 14px;border:1px solid var(--line);
+      border-radius:10px;background:var(--card);color:var(--fg);
+      text-decoration:none;font-weight:600
+    }
     .btn:hover{border-color:var(--brand)}
+
+    /* 顶部区（论文题目、作者、按钮） */
     .hero{padding:60px 0 24px}
     .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.1;margin:0 0 12px}
     .hero p{color:var(--muted);margin:0}
-    .pill{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);background:var(--soft);padding:6px 10px;border-radius:999px;font-size:14px;color:var(--muted)}
+
+    /* 小药丸标签（Preprint 之类） */
+    .pill{
+      display:inline-flex;gap:8px;align-items:center;
+      border:1px solid var(--line);background:var(--soft);
+      padding:6px 10px;border-radius:999px;font-size:14px;color:var(--muted)
+    }
+
+    /* 作者行 */
     .author-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
     .author-row a{color:var(--fg)}
+
+    /* 顶部按钮区（Paper / Code / Demo） */
     .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+
+    /* 顶部预览图/视频卡片 */
     .teaser{margin:28px 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
     .teaser img,.teaser video{width:100%;display:block}
+
+    /* 普通章节 */
     section{padding:38px 0;border-top:1px solid var(--line)}
     section h2{font-size:clamp(22px,2.6vw,30px);line-height:1.2;margin:0 0 12px}
+
+    /* 2列栅格（文字+卡片、两张图并排等） */
     .grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
     @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
+
+    /* 图片卡片与图注 */
     figure{margin:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card)}
     figcaption{padding:10px 12px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+
+    /* 通用卡片 */
     .card{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--card)}
+
+    /* 列表 */
     .list{padding-left:18px;margin:0}
     .list li{margin:6px 0}
+
+    /* 代码块（引用文献 BibTeX 用） */
     pre{margin:0;background:var(--soft);color:var(--code);border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto}
     code{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+
+    /* 页脚 */
     .footer{padding:40px 0;color:var(--muted);font-size:14px;text-align:center;border-top:1px solid var(--line)}
     .badges{display:flex;flex-wrap:wrap;gap:8px}
-    .kbd{font:600 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New";border:1px solid var(--line);background:var(--soft);padding:2px 6px;border-radius:6px}
+
+    /* 小徽章样式（页脚用） */
+    .kbd{font:600 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New";
+         border:1px solid var(--line);background:var(--soft);padding:2px 6px;border-radius:6px}
   </style>
 </head>
+
 <body>
-  <!-- NAV -->
+  <!-- ============ 顶部导航 ============ -->
   <nav class="nav">
     <div class="container">
+      <!-- 左侧品牌名（点击回到顶部） -->
       <a class="brand" href="#top">MGFDK</a>
+      <!-- 右侧锚点导航：跳转到页面各部分 -->
       <ul>
         <li><a href="#abstract">Abstract</a></li>
         <li><a href="#method">Method</a></li>
@@ -84,57 +149,80 @@
     </div>
   </nav>
 
+  <!-- ============ 主体内容容器 ============ -->
   <main id="top" class="container">
-    <!-- HERO -->
+
+    <!-- ===== HERO（标题/作者/按钮/封面图） ===== -->
     <section class="hero" aria-label="header">
+      <!-- 左上角状态标签（可改为 Accepted @ XXX 之类） -->
       <span class="pill">Preprint · 2025</span>
-      <h1>MGFDK: Multi‑Modal Gait Fusion for Depression Knowledge</h1>
+
+      <!-- 论文标题（可自行修改） -->
+      <h1>MGFDK: Multi-Modal Gait Fusion for Depression Knowledge</h1>
+
+      <!-- 副标题/一句话简介 -->
       <p>Clean, minimal project page for showcasing a paper: teaser → abstract → method → results → resources.</p>
+
+      <!-- 作者行：按需替换为作者名，链接到主页/谷歌学术等 -->
       <div class="author-row">
         <a href="#">Author A</a>, <a href="#">Author B</a>, <a href="#">Author C</a>
       </div>
+
+      <!-- 操作按钮：PDF/代码/演示（修改 href 即可） -->
       <div class="actions">
+        <!-- Paper 按钮：把 ./assets/paper.pdf 换成你的论文 PDF 路径 -->
         <a class="btn" href="./assets/paper.pdf" target="_blank">📄 Paper (PDF)</a>
+        <!-- Code 按钮：替换为你的 GitHub 仓库地址 -->
         <a class="btn" href="https://github.com/yourname/mgfdk-project-page" target="_blank">⭐ Code</a>
+        <!-- Demo 按钮：跳到页面内 #demo 区域，或外链到在线演示 -->
         <a class="btn" href="#demo">▶️ Demo</a>
       </div>
+
+      <!-- 顶部封面图/短视频：替换文件路径与名称 -->
       <div class="teaser" style="margin-top:18px">
-        <!-- Replace with your image or a short MP4/WebM. Keep filenames relative. -->
+        <!-- 建议使用相对路径：./assets/teaser.jpg；确保文件已放在仓库的 assets 目录 -->
         <img src="./assets/teaser.jpg" alt="MGFDK Teaser" />
       </div>
     </section>
 
-    <!-- ABSTRACT -->
+    <!-- ===== 摘要 ===== -->
     <section id="abstract">
       <h2>Abstract</h2>
       <div class="grid-2">
+        <!-- 左列：摘要文字 -->
         <p>
-          We propose <strong>MGFDK</strong>, a multi‑modal gait analysis framework for depression screening.
+          We propose <strong>MGFDK</strong>, a multi-modal gait analysis framework for depression screening.
           Consecutive frames are stacked to form temporal gait templates for each modality (RGB/IR/Depth),
-          processed by modality‑specific ResNet‑50 encoders and fused before a Transformer‑based head.
-          A consistency loss bridges tri‑modal and bi‑modal settings to handle missing modalities.
+          processed by modality-specific ResNet-50 encoders and fused before a Transformer-based head.
+          A consistency loss bridges tri-modal and bi-modal settings to handle missing modalities.
         </p>
+
+        <!-- 右列：亮点卡片（可按需增删条目） -->
         <div class="card">
           <strong>Highlights</strong>
           <ul class="list">
             <li>Robust to missing modalities</li>
-            <li>ResNet‑50 encoders + Transformer head</li>
+            <li>ResNet-50 encoders + Transformer head</li>
             <li>Simple MSE guidance across modes</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- METHOD -->
+    <!-- ===== 方法（框架图） ===== -->
     <section id="method">
       <h2>Method</h2>
       <figure>
+        <!-- 框架图路径：确保文件名与大小写准确（GitHub Pages 静态托管对大小写敏感） -->
         <img src="./assets/framework.png" alt="Framework diagram" />
-        <figcaption>Overall pipeline: preprocessing → per‑modality encoders → fusion → Transformer head → classifier; cross‑mode MSE guidance encourages bi‑modal features to align with tri‑modal ones.</figcaption>
+        <figcaption>
+          Overall pipeline: preprocessing → per-modality encoders → fusion → Transformer head → classifier;
+          cross-mode MSE guidance encourages bi-modal features to align with tri-modal ones.
+        </figcaption>
       </figure>
     </section>
 
-    <!-- RESULTS -->
+    <!-- ===== 结果（图片并排示例） ===== -->
     <section id="results">
       <h2>Results</h2>
       <div class="grid-2">
@@ -149,29 +237,35 @@
       </div>
     </section>
 
-    <!-- DEMO (optional) -->
+    <!-- ===== Demo（可选：嵌入视频） ===== -->
     <section id="demo">
       <h2>Demo</h2>
       <figure>
+        <!-- MP4/WebM 建议短小，避免太大影响加载；或外链到 YouTube/Bilibili -->
         <video src="./assets/demo.mp4" controls preload="metadata"></video>
         <figcaption>Short qualitative demo (optional).</figcaption>
       </figure>
     </section>
 
-    <!-- RESOURCES -->
+    <!-- ===== 资源链接 ===== -->
     <section id="resources">
       <h2>Code & Resources</h2>
       <div class="actions">
+        <!-- 替换为训练代码仓库 -->
         <a class="btn" href="https://github.com/yourname/mgfdk" target="_blank">GitHub · Training</a>
+        <!-- 本页面的仓库 -->
         <a class="btn" href="https://github.com/yourname/mgfdk-project-page" target="_blank">GitHub · This Page</a>
+        <!-- 模型权重（如放在 Hugging Face） -->
         <a class="btn" href="https://huggingface.co/yourname/mgfdk" target="_blank">🤗 Weights</a>
+        <!-- 补充材料 PDF -->
         <a class="btn" href="./assets/supplementary.pdf" target="_blank">Supplementary</a>
       </div>
     </section>
 
-    <!-- CITATION -->
+    <!-- ===== 引用（BibTeX） ===== -->
     <section id="citation">
       <h2>Citation</h2>
+      <!-- 把条目替换成你论文的真实 BibTeX -->
       <pre><code>@article{your2025mgfdk,
   title   = {MGFDK: Multi-Modal Gait Fusion for Depression Knowledge},
   author  = {Your Name and Others},
@@ -181,6 +275,7 @@
     </section>
   </main>
 
+  <!-- ============ 页脚 ============ -->
   <footer class="footer">
     <div class="container">
       <div class="badges">
@@ -192,11 +287,10 @@
     </div>
   </footer>
 
+  <!-- 可选 JS（目前留空；如果以后要做滚动动画或复制按钮，可以加在这里）-->
   <script>
-    // Optional: adjust base path automatically if hosted under /REPO/
-    // Ensures relative links work both locally and on GitHub Pages project sites
     (function(){
-      // No JS required for core; keep minimal for cleanliness
+      // 留空：页面核心功能不依赖 JS
     })();
   </script>
 </body>
