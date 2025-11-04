@@ -188,10 +188,7 @@
       <div class="grid-2">
         <!-- 左列：摘要文字 -->
         <p>
-          We propose <strong>MGFDK</strong>, a multi-modal gait analysis framework for depression screening.
-          Consecutive frames are stacked to form temporal gait templates for each modality (RGB/IR/Depth),
-          processed by modality-specific ResNet-50 encoders and fused before a Transformer-based head.
-          A consistency loss bridges tri-modal and bi-modal settings to handle missing modalities.
+         Depression, as a prevalent mental health disorder, requires an efficient, objective, and scalable approach to automated recognition.This paper presents a novel depression recognition framework named MGFKD (Multi-modal Gait Fusion with Knowledge Distillation), which jointly models RGB, infrared (IR) and depth gait data. MGFKD takes temporal gait templates as input and employs modality-specific subnetworks to extract features independently. These multi-modal features are concatenated along the channel dimension and further refined through a Transformer-based fusion module to enhance high-level representation learning. To effectively handle modality-missing scenarios, a parallel training mechanism for bi-modal and tri-modal configurations is introduced. Additionally, a knowledge distillation (KD) strategy based on minimizing the mean squared error between optimized features is incorporated to improve performance under bi-modal input conditions. Experimental results on a gait dataset comprising 300 healthy, 200 subthreshold, and 97 depressed individuals demonstrate the effectiveness of MGFKD in three-class depression recognition tasks, with superior performance in binary classification settings. Furthermore, a series of ablation studies validate the effectiveness of the proposed architectural components and training strategies.
         </p>
 
         <!-- 右列：亮点卡片（可按需增删条目） -->
