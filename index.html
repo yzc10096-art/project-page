@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MGFKD: Multi-modal Gait Fusion with Knowledge Distillation for Depression Recognition</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MGFDK: Multi-Modal Gait Framework for Depression Screening">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fcfcfd; --ink:#1f2937; --muted:#6b7280; --brand:#2563eb; --card:#ffffff; --line:#e5e7eb;
+      --max:1100px; --radius:14px;
+    }
+    *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max);margin:0 auto;padding:28px}
+    .hero{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+    .hero .title{flex:1 1 520px}
+    .hero h1{margin:8px 0 12px;font-size:38px;line-height:1.15}
+    .hero p{margin:0;color:var(--muted)}
+    .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .btn{display:inline-block;border:1px solid var(--line);background:var(--card);padding:9px 14px;border-radius:10px;font-weight:600}
+    .btn.primary{background:var(--brand);color:#fff;border-color:var(--brand)}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+    .grid{display:grid;grid-template-columns:1.2fr 1fr;gap:18px}
+    .section{margin-top:22px}
+    h2{font-size:22px;margin:0 0 10px}
+    .figure{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+    .figure img{width:100%;display:block}
+    .twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .meta{color:var(--muted);font-size:14px}
+    code,pre{font-family:ui-monospace,Menlo,Consolas,monospace}
+    pre{background:#0b1220;color:#d2d6db;padding:14px;border-radius:10px;overflow:auto}
+    @media (max-width:900px){ .grid{grid-template-columns:1fr} .twocol{grid-template-columns:1fr} .hero h1{font-size:30px} }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- 顶部：标题 / 作者 / 链接按钮 -->
+    <div class="hero card">
+      <div class="title">
+        <h1>MGFKD: Multi-modal Gait Fusion with Knowledge Distillation for Depression Recognition</h1>
+        <p>YOUR AUTHORS — YOUR AFFILIATION</p>
+        <div class="btns">
+          <a class="btn primary" href="YOUR_PAPER_LINK" target="_blank">Paper</a>
+          <a class="btn" href="YOUR_CODE_LINK" target="_blank">Code</a>
+          <a class="btn" href="YOUR_DEMO_LINK" target="_blank">Demo</a>
+          <a class="btn" href="YOUR_MODEL_RELEASE_LINK" target="_blank">Model</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 摘要 + 亮点 -->
+    <div class="grid section">
+      <div class="card">
+        <h2>Abstract</h2>
+        <p>Depression, as a prevalent mental health disorder, requires an efficient, objective, and scalable approach to automated recognition.This paper presents a novel depression recognition framework named MGFKD (Multi-modal Gait Fusion with Knowledge Distillation), which jointly models RGB, infrared (IR) and depth gait data. MGFKD takes temporal gait templates as input and employs modality-specific subnetworks to extract features independently. These multi-modal features are concatenated along the channel dimension and further refined through a Transformer-based fusion module to enhance high-level representation learning. To effectively handle modality-missing scenarios, a parallel training mechanism for bi-modal and tri-modal configurations is introduced. Additionally, a knowledge distillation (KD) strategy based on minimizing the mean squared error between optimized features is incorporated to improve performance under bi-modal input conditions. Experimental results on a gait dataset comprising 300 healthy, 200 subthreshold, and 97 depressed individuals demonstrate the effectiveness of MGFKD in three-class depression recognition tasks, with superior performance in binary classification settings. Furthermore, a series of ablation studies validate the effectiveness of the proposed architectural components and training strategies.</p>
+      </div>
+      <div class="card">
+        <h2>Highlights</h2>
+        <ul>
+          <li>三/双模态统一框架，适应模态缺失。</li>
+          <li>步态时序模板编码，利用短时依赖。</li>
+          <li>融合特征经 Transformer 细化，MSE 监督跨模式对齐。</li>
+          <li>端到端推理，输出健康/阈下/抑郁。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 方法图 -->
+    <div class="section card">
+      <h2>Method</h2>
+      <div class="figure">
+        <img src="assets/framework.png" alt="MGFDK Framework">
+      </div>
+      <p class="meta">Figure 1. Overall framework of MGFDK.</p>
+    </div>
+
+    <!-- 结果 / 可视化 -->
+    <div class="section twocol">
+      <div class="card">
+        <h2>Results</h2>
+        <p>放 1–2 张关键对比图或表格截图（或链接补充材料）。</p>
+        <div class="figure"><img src="assets/result1.png" alt="Results"></div>
+      </div>
+      <div class="card">
+        <h2>Demo</h2>
+        <p>提供可执行程序或在线体验。</p>
+        <!-- 若有在线 Gradio/HF Spaces，可嵌入 iframe；否则放按钮 -->
+        <a class="btn primary" href="YOUR_DEMO_LINK" target="_blank">Open Demo</a>
+      </div>
+    </div>
+
+    <!-- BibTeX -->
+    <div class="section card">
+      <h2>BibTeX</h2>
+      <pre>@inproceedings{YOURKEY,
+  title={MGFDK: Multi-Modal Gait Framework for Depression Screening},
+  author={...},
+  booktitle={...},
+  year={2025}
+}</pre>
+    </div>
+
+    <p class="meta">© 2025 YOUR NAME. This page is a simple static project page for the MGFDK paper.</p>
+  </div>
+</body>
+</html>
