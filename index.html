@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MGFDK: Multi-Modal Gait Fusion for Depression Knowledge</title>
+  <meta name="description" content="Project page for MGFDK. Clean, single-file template for GitHub Pages." />
+  <!-- Favicon (optional) -->
+  <link rel="icon" href="./assets/favicon.png" />
+  <style>
+    :root{
+      --bg: #ffffff;
+      --fg: #0f172a; /* slate-900 */
+      --muted: #475569; /* slate-600 */
+      --soft: #f1f5f9; /* slate-100 */
+      --line: #e2e8f0; /* slate-200 */
+      --brand: #2563eb; /* blue-600 */
+      --brand-2: #0ea5e9; /* sky-500 */
+      --card: #ffffff;
+      --code: #111827; /* gray-900 */
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0b1020;
+        --fg:#e5e7eb;
+        --muted:#94a3b8;
+        --soft:#0f172a;
+        --line:#1f2937;
+        --card:#0d1326;
+        --brand:#60a5fa;
+        --brand-2:#38bdf8;
+        --code:#e5e7eb;
+      }
+    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";}
+    *{box-sizing:border-box}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .nav{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+    .nav .container{display:flex;align-items:center;gap:20px;justify-content:space-between;height:60px}
+    .brand{font-weight:700;letter-spacing:.2px}
+    .nav a{color:var(--fg)}
+    .nav ul{display:flex;gap:16px;list-style:none;padding:0;margin:0}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--fg);text-decoration:none;font-weight:600}
+    .btn:hover{border-color:var(--brand)}
+    .hero{padding:60px 0 24px}
+    .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.1;margin:0 0 12px}
+    .hero p{color:var(--muted);margin:0}
+    .pill{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);background:var(--soft);padding:6px 10px;border-radius:999px;font-size:14px;color:var(--muted)}
+    .author-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .author-row a{color:var(--fg)}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .teaser{margin:28px 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
+    .teaser img,.teaser video{width:100%;display:block}
+    section{padding:38px 0;border-top:1px solid var(--line)}
+    section h2{font-size:clamp(22px,2.6vw,30px);line-height:1.2;margin:0 0 12px}
+    .grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+    @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
+    figure{margin:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card)}
+    figcaption{padding:10px 12px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+    .card{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--card)}
+    .list{padding-left:18px;margin:0}
+    .list li{margin:6px 0}
+    pre{margin:0;background:var(--soft);color:var(--code);border:1px solid var(--line);border-radius:10px;padding:14px;overflow:auto}
+    code{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+    .footer{padding:40px 0;color:var(--muted);font-size:14px;text-align:center;border-top:1px solid var(--line)}
+    .badges{display:flex;flex-wrap:wrap;gap:8px}
+    .kbd{font:600 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New";border:1px solid var(--line);background:var(--soft);padding:2px 6px;border-radius:6px}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container">
+      <a class="brand" href="#top">MGFDK</a>
+      <ul>
+        <li><a href="#abstract">Abstract</a></li>
+        <li><a href="#method">Method</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#resources">Code & Data</a></li>
+        <li><a href="#citation">Citation</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="top" class="container">
+    <!-- HERO -->
+    <section class="hero" aria-label="header">
+      <span class="pill">Preprint · 2025</span>
+      <h1>MGFDK: Multi‑Modal Gait Fusion for Depression Knowledge</h1>
+      <p>Clean, minimal project page for showcasing a paper: teaser → abstract → method → results → resources.</p>
+      <div class="author-row">
+        <a href="#">Author A</a>, <a href="#">Author B</a>, <a href="#">Author C</a>
+      </div>
+      <div class="actions">
+        <a class="btn" href="./assets/paper.pdf" target="_blank">📄 Paper (PDF)</a>
+        <a class="btn" href="https://github.com/yourname/mgfdk-project-page" target="_blank">⭐ Code</a>
+        <a class="btn" href="#demo">▶️ Demo</a>
+      </div>
+      <div class="teaser" style="margin-top:18px">
+        <!-- Replace with your image or a short MP4/WebM. Keep filenames relative. -->
+        <img src="./assets/teaser.jpg" alt="MGFDK Teaser" />
+      </div>
+    </section>
+
+    <!-- ABSTRACT -->
+    <section id="abstract">
+      <h2>Abstract</h2>
+      <div class="grid-2">
+        <p>
+          We propose <strong>MGFDK</strong>, a multi‑modal gait analysis framework for depression screening.
+          Consecutive frames are stacked to form temporal gait templates for each modality (RGB/IR/Depth),
+          processed by modality‑specific ResNet‑50 encoders and fused before a Transformer‑based head.
+          A consistency loss bridges tri‑modal and bi‑modal settings to handle missing modalities.
+        </p>
+        <div class="card">
+          <strong>Highlights</strong>
+          <ul class="list">
+            <li>Robust to missing modalities</li>
+            <li>ResNet‑50 encoders + Transformer head</li>
+            <li>Simple MSE guidance across modes</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- METHOD -->
+    <section id="method">
+      <h2>Method</h2>
+      <figure>
+        <img src="./assets/framework.png" alt="Framework diagram" />
+        <figcaption>Overall pipeline: preprocessing → per‑modality encoders → fusion → Transformer head → classifier; cross‑mode MSE guidance encourages bi‑modal features to align with tri‑modal ones.</figcaption>
+      </figure>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="results">
+      <h2>Results</h2>
+      <div class="grid-2">
+        <figure>
+          <img src="./assets/quantitative.png" alt="Quantitative results" />
+          <figcaption>Quantitative performance across modalities.</figcaption>
+        </figure>
+        <figure>
+          <img src="./assets/ablation.png" alt="Ablation studies" />
+          <figcaption>Ablation on fusion and guidance losses.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- DEMO (optional) -->
+    <section id="demo">
+      <h2>Demo</h2>
+      <figure>
+        <video src="./assets/demo.mp4" controls preload="metadata"></video>
+        <figcaption>Short qualitative demo (optional).</figcaption>
+      </figure>
+    </section>
+
+    <!-- RESOURCES -->
+    <section id="resources">
+      <h2>Code & Resources</h2>
+      <div class="actions">
+        <a class="btn" href="https://github.com/yourname/mgfdk" target="_blank">GitHub · Training</a>
+        <a class="btn" href="https://github.com/yourname/mgfdk-project-page" target="_blank">GitHub · This Page</a>
+        <a class="btn" href="https://huggingface.co/yourname/mgfdk" target="_blank">🤗 Weights</a>
+        <a class="btn" href="./assets/supplementary.pdf" target="_blank">Supplementary</a>
+      </div>
+    </section>
+
+    <!-- CITATION -->
+    <section id="citation">
+      <h2>Citation</h2>
+      <pre><code>@article{your2025mgfdk,
+  title   = {MGFDK: Multi-Modal Gait Fusion for Depression Knowledge},
+  author  = {Your Name and Others},
+  journal = {arXiv preprint arXiv:2501.xxxxx},
+  year    = {2025}
+}</code></pre>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="badges">
+        <span class="kbd">GitHub Pages</span>
+        <span class="kbd">Single-file</span>
+        <span class="kbd">Responsive</span>
+      </div>
+      <div style="margin-top:10px">© 2025 MGFDK Authors</div>
+    </div>
+  </footer>
+
+  <script>
+    // Optional: adjust base path automatically if hosted under /REPO/
+    // Ensures relative links work both locally and on GitHub Pages project sites
+    (function(){
+      // No JS required for core; keep minimal for cleanliness
+    })();
+  </script>
+</body>
+</html>
