@@ -581,5 +581,48 @@
 </html>
 
 
+head里面的内容：
+  <meta charset="utf-8">
+  <!-- SEO：页面简要描述 -->
+  <meta name="description" content="">
+  <!-- SEO：关键词 -->
+  <meta name="keywords" content="Cinemagraph">
+  <!-- 让移动端可以自适应宽度 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- 页面标题（浏览器标签栏显示） -->
+  <title>MGFKD: Multi-modal Gait Fusion with Knowledge Distillation for Depression Recognition</title>
+
+  <!-- 谷歌统计（可选，不需要统计可删除） -->
+  <script async src=""></script>
+  <script>
+    /* Google Analytics 初始化 */
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-PYVRSFMDRL'); /* 用你的 GA ID 替换 */
+  </script>
+
+  <!-- Google Fonts 字体（可选） -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <!-- 样式：Bulma 框架与本地样式（index.css） -->
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css"> <!-- 轮播扩展（下面 results-carousel 用到） -->
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">   <!-- 滑块扩展（本页未用，可移除） -->
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> <!-- 本地打包的 Font Awesome -->
+  <!-- academicons（arXiv 等学术图标库，可选） -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">              <!-- 你自己的样式补充 -->
+  <link rel="icon" href="./static/images/favicon.svg">               <!-- 网站 favicon 图标 -->
+
+  <!-- JS 依赖：jQuery + Bulma 扩展 + 自定义逻辑 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- defer：等 HTML 解析完再执行 -->
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script> <!-- 你自定义的初始化代码：比如激活 carousel -->
+
 </body>
 </html>
