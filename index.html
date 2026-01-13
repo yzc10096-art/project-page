@@ -1,208 +1,272 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<!-- 字体（可选） -->
-<link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Depression Recognition With Arbitrary Gait Modalities: A Multi-Modal Dataset and a Unified Framework</title>
 
-<!-- Bulma 框架 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
-<!-- Font Awesome 6（图标） -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+  <!-- Bulma -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
-<!-- Academicons（学术图标，可选） -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
-<!-- 轮播/滑块（如果你真的用到它们才保留，否则删掉） -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/css/bulma-carousel.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.5/dist/css/bulma-slider.min.css">
+  <!-- Optional UI libs -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.5/dist/css/bulma-slider.min.css">
 
-<!-- 你的自定义样式（仍然可以保留本地） -->
-<link rel="stylesheet" href="./static/css/index.css">
+  <!-- Local styles/scripts (keep your original paths) -->
+  <link rel="stylesheet" href="./static/css/index.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/js/bulma-carousel.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.5/dist/js/bulma-slider.min.js"></script>
+  <script defer src="./static/js/index.js"></script>
 
-<!-- jQuery（如果 index.js 里需要） -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<!-- 必要的 JS（如果用到轮播/滑块） -->
-<script defer src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/js/bulma-carousel.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.5/dist/js/bulma-slider.min.js"></script>
-
-<!-- 你的自定义脚本 -->
-<script defer src="./static/js/index.js"></script>
+  <!-- MathJax (optional; safe even if you do not use formulas on the page) -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
+
 <body>
 
-<!--
-  顶部导航（已注释掉）
-  - Bulma 的 navbar 结构；目前页面不用导航，所以整体被注释
-  - 如果你要启用，去掉注释即可
--->
-<!--
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  ...
-</nav>
--->
-
-<!-- 顶部 Hero 标题区：标题 + 作者 + 链接按钮 -->
+<!-- Hero -->
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
 
-          <!-- 标题 -->
           <h1 class="title is-1 publication-title">
             Depression Recognition With Arbitrary Gait Modalities: A Multi-Modal Dataset and a Unified Framework
           </h1>
 
-          <!-- 作者行 -->
+          <!-- If your IJCAI source is anonymized, keep this as placeholder and edit later -->
           <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              *<sup>1</sup>,
-            </span>
-            <span class="author-block">
-              <!-- 作者主页示例 -->
-              *<sup>1</sup>,
-            </span>
-            <span class="author-block">
-              *<sup>1</sup>,
-            </span>
-            <span class="author-block">
-              *<sup>3</sup>,
-            </span>
-            <span class="author-block">
-              *<sup>2✉</sup>
-            </span>
+            <span class="author-block">Anonymous Authors</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Affiliations will be updated.</span>
           </div>
 
-          <!-- 机构行 -->
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>*,</span>
+          <div class="is-size-6" style="margin-top: 0.5rem;">
+            <span class="tag is-light">IJCAI 2026</span>
+            <span class="tag is-light">Multi-modal Gait • Missing Modality • Knowledge Distillation</span>
           </div>
-          <!-- 贡献/通讯说明 -->
-          （*Equal contribution,） ✉Corresponding author
 
-          <!-- 资源按钮 -->
-          <div class="column has-text-centered">
+          <!-- Links -->
+          <div class="column has-text-centered" style="margin-top: 1.0rem;">
             <div class="publication-links">
-              <!-- PDF 按钮 -->
               <span class="link-block">
-                <!--填论文pdf地址-->
-                <a href=""  
-                   class="external-link button is-normal is-rounded is-dark">
+                <a href="paper.pdf" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                  <span>Paper(Coming soon)</span>
+                  <span>Paper (PDF)</span>
                 </a>
               </span>
 
-              <!-- arXiv 按钮 -->
               <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
+                <a href="" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="ai ai-arxiv"></i></span>
-                  <span>arXiv(Coming soon)</span>
+                  <span>arXiv (Coming soon)</span>
                 </a>
               </span>
 
-              <!-- Code（占位） -->
               <span class="link-block">
-                <a href="https://github.com/"
-                   class="external-link button is-normal is-rounded is-dark">
+                <a href="https://github.com/" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fab fa-github"></i></span>
-                  <span>Code(Coming soon)</span>
+                  <span>Code (Coming soon)</span>
                 </a>
               </span>
 
-              <!-- Data（占位） -->
               <span class="link-block">
                 <a href="" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="far fa-images"></i></span>
-                  <span>Data(Coming soon)</span>
+                  <span>Dataset (Coming soon)</span>
                 </a>
               </span>
             </div>
           </div>
 
-        </div> <!-- /column -->
-      </div>   <!-- /columns -->
-    </div>     <!-- /container -->
-  </div>       <!-- /hero-body -->
-</section>
-
-<!-- 大图/视频 Teaser：页面“封面”演示（自动播放、静音、循环） -->
-<!-- Teaser 封面图（无视频版） -->
-     <div class="container is-max-desktop">     <!-- Teaser -->
-      <div class="teaser-img" style="margin-top: 1.25rem;">
-        <figure style="display: inline-block; margin: 0 auto;">
+          <!-- Teaser -->
+          <div class="teaser-img" style="margin-top: 1.25rem;">
             <!-- Replace with your own teaser later; keeping a placeholder is fine -->
             <img src="./assets/intro_01.png"
                  alt="Teaser figure (placeholder)."
-                 style="max-width:40%;height:auto; display:block; margin:0 auto;" />
-            <figcaption class="subtitle has-text-centered">
-                The existing methods rely solely on RGB+Skeleton data and are sensitive to noise introduced during silhouette or skeleton
-                generation, whereas our framework leverages RGB, depth, and infrared modalities and incorporates trust-driven hierarchical knowledge distillation to enable 
-                robust depression recognition under arbitrary modality combinations.
-            </figcaption>
-          </figure>
-      </div>
-     </div>
-</section>
+                 style="max-width:40%;height:auto;" />
+            <p class="is-size-7 has-text-grey" style="margin-top:0.5rem;">
+              Existing RGB+Skeleton methods are highly sensitive to noise from silhouette/skeleton generation. 
+              Our framework leverages RGB, depth, and infrared with trust-driven hierarchical distillation for robust depression recognition under arbitrary modality combinations.
+            </p>
+          </div>
 
-<!-- Abstract 区块 -->
+      
+
+
+<!-- Abstract -->
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <p>
-            Depression poses a major global public health challenge, highlighting the need for early and objective detection. Gait has emerged as a promising non-invasive behavioral indicator, yet existing gait-based approaches are limited by single-modality data and poor robustness to modality absence.
-To address these limitations, we construct a large-scale multi-modal gait dataset for depression recognition, incorporating RGB, depth, and infrared (IR) modalities to exploit their complementary strengths. Building upon this dataset, we propose a unified end-to-end framework that supports arbitrary modality combinations. The framework integrates a trust-driven hierarchical knowledge distillation strategy, where distillation weights are adaptively guided by the teacher’s learning state, enabling effective knowledge transfer at both modality and fusion levels without multi-stage training.
-Extensive experiments demonstrate the effectiveness and generalization of the proposed dataset and unified framework, establishing a practical and reliable solution for depression recognition under real-world modality-incomplete scenarios. The dataset and code are provided in the supplementary material.
-          </p>
+          <p>Depression recognition from gait offers a scalable and unobtrusive alternative to interview-based screening, but prior approaches are typically built on a single modality and degrade sharply when a modality is missing or noisy. We introduce the Multi-modal Gait Depression (MGD) dataset, a large-scale benchmark collected with synchronized RGB, infrared (IR), and depth sensors from 597 participants, covering diverse acquisition conditions. On top of MGD, we propose a unified framework that supports arbitrary modality combinations at inference time. The model uses modality-specific encoders and a Modality Interaction and Fusion (MIF) module to capture cross-modal complementarity and modality-specific dynamics, while a teacher–student design with trust-driven hierarchical knowledge distillation provides feature-level guidance to compensate for missing modalities in an end-to-end manner. On three-class recognition, our tri-modal setting achieves 66.20% accuracy and 71.71 F1, and remains robust under bi-modal inputs (e.g., R+D: 66.74% accuracy / 67.03 F1).</p>
         </div>
       </div>
     </div>
-
-    <!-- 下面这个 Paper video 块被注释掉了，如需嵌 YouTube，可启用 -->
-    <!--
-    <div class="columns is-centered has-text-centered">
-      ...
-    </div>
-    -->
   </div>
 </section>
 
-<!-- Method（框架图） -->
+<!-- Key Contributions -->
 <section class="section">
-  <div class="container is-max-900">
-    <h2 class="title is-3 has-text-centered">Method</h2>
-    <figure class="paper-figure has-text-centered">
-      <!-- 将你的框架图放到 ./static/images/framework.png -->
-      <img src="./assets/Overview_01.png" alt="Framework Diagram" style="display:inline-block;max-width:80%;height:auto;"/>
-      <figcaption>
-        Pipeline: preprocessing → per-modality encoders → fusion → Transformer head → classifier, with cross-mode MSE guidance for missing-modality robustness.
-      </figcaption>
-    </figure>
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Contributions</h2>
+    <div class="content">
+      <ul>
+        <li><b>MGD dataset:</b> a large-scale, synchronized RGB/IR/depth gait dataset for depression analysis with 597 participants, designed for modality-robust evaluation.</li>
+        <li><b>Unified inference under arbitrary modalities:</b> a single framework that supports tri-modal and bi-modal inputs without re-training separate models.</li>
+        <li><b>MIF module:</b> explicit cross-modal interaction and fusion to leverage complementarity and mitigate modality-specific noise.</li>
+        <li><b>Trust-driven hierarchical knowledge distillation:</b> feature-level guidance from a complete-modality teacher to a missing-modality student for robust deployment.</li>
+      </ul>
+    </div>
   </div>
 </section>
 
-<!-- Results（两张静态图示例） -->
+<!-- Dataset -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Multi-modal Gait Depression (MGD) Dataset</h2>
+    <div class="content">
+      <p>
+        The MGD dataset is collected in an indoor corridor with synchronized ceiling-mounted RGB, infrared (IR), and depth sensors.
+        It contains recordings from <b>597 participants</b> and spans diverse real-world factors such as lighting variability.
+      </p>
+      <div class="columns is-vcentered">
+        <div class="column">
+          <figure class="image">
+            <img src="./assets/xxx_dataset_setup.png" alt="Dataset setup (placeholder)">
+          </figure>
+          <p class="is-size-7 has-text-grey">Placeholder: <code>./assets/xxx_dataset_setup.png</code> (data collection protocol / setup).</p>
+        </div>
+        <div class="column">
+          <figure class="image">
+            <img src="./assets/xxx_modalities.png" alt="Modality examples (placeholder)">
+          </figure>
+          <p class="is-size-7 has-text-grey">Placeholder: <code>./assets/xxx_modalities.png</code> (RGB / IR / depth examples).</p>
+        </div>
+      </div>
+      <p class="is-size-7 has-text-grey">
+        You can replace the placeholders with the corresponding figures from your paper (e.g., intro / dataset figures).
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Method -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Method</h2>
+    <div class="content">
+      <p>
+        Our framework is formulated in a teacher–student paradigm. The teacher operates on complete RGB/IR/depth inputs to learn
+        discriminative multimodal representations, while the student is trained to handle missing-modality inputs and is guided
+        by feature-level distillation to compensate for absent signals.
+      </p>
+
+      <h3 class="title is-5">Modality Interaction and Fusion (MIF)</h3>
+      <p>
+        The MIF module explicitly models cross-modal interactions and modality-specific temporal dynamics, and produces fused
+        representations for downstream classification.
+      </p>
+
+      <div class="columns is-vcentered">
+        <div class="column">
+          <figure class="image">
+            <img src="./assets/xxx_framework.png" alt="Overall framework (placeholder)">
+          </figure>
+          <p class="is-size-7 has-text-grey">Placeholder: <code>./assets/xxx_framework.png</code> (overall framework).</p>
+        </div>
+        <div class="column">
+          <figure class="image">
+            <img src="./assets/xxx_mif.png" alt="MIF module (placeholder)">
+          </figure>
+          <p class="is-size-7 has-text-grey">Placeholder: <code>./assets/xxx_mif.png</code> (MIF module).</p>
+        </div>
+      </div>
+
+      <h3 class="title is-5">Trust-driven Hierarchical Knowledge Distillation</h3>
+      <p>
+        To stabilize distillation under missing modalities, we introduce a trust-driven mechanism that weights the distillation
+        signal based on the reliability of generated missing-modality features, and apply the constraints hierarchically across
+        intermediate and fused representations.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Results -->
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Results</h2>
-    <div class="columns">
-      <div class="column">
-        <figure class="paper-figure">
-          <img src="./static/images/quantitative.png" alt="Quantitative Results" />
-          <figcaption>Quantitative performance across modalities.</figcaption>
-        </figure>
-      </div>
-      <div class="column">
-        <figure class="paper-figure">
-          <img src="./static/images/ablation.png" alt="Ablation Studies" />
-          <figcaption>Ablation on fusion and guidance losses.</figcaption>
-        </figure>
+    <div class="content">
+      <p>
+        Under tri-modal inputs (R+I+D), our method reaches <b>66.20% accuracy</b> and <b>71.71 F1</b> on three-class depression recognition,
+        and maintains strong performance when a modality is missing.
+      </p>
+
+      <h3 class="title is-5">Ablations: Unified Framework / Fusion / Distillation</h3>
+      <div class="table-container">
+<table class="table is-striped is-hoverable is-fullwidth is-size-7">
+<thead><tr><th>Setting</th><th>Modalities</th><th>Acc</th><th>Precision</th><th>Recall</th><th>F1</th></tr></thead>
+<tbody>
+<tr><td>w/o UF</td><td>R+I+D</td><td>65.99</td><td>73.41</td><td>69.63</td><td>67.43</td></tr>
+<tr><td></td><td>R+I</td><td>62.03</td><td>68.07</td><td>65.22</td><td>63.56</td></tr>
+<tr><td></td><td>R+D</td><td>62.57</td><td>62.57</td><td>68.66</td><td>63.73</td></tr>
+<tr><td></td><td>I+D</td><td>59.89</td><td>61.94</td><td>56.10</td><td>52.66</td></tr>
+<tr><td>w/o MFGC</td><td>R+I+D</td><td>61.60</td><td>70.61</td><td>70.43</td><td>70.46</td></tr>
+<tr><td></td><td>R+I</td><td>56.26</td><td>68.40</td><td>68.43</td><td>67.30</td></tr>
+<tr><td></td><td>R+D</td><td>65.35</td><td>72.97</td><td>68.18</td><td>65.23</td></tr>
+<tr><td></td><td>I+D</td><td>56.79</td><td>65.11</td><td>58.03</td><td>60.26</td></tr>
+<tr><td>w/o FLD</td><td>R+I+D</td><td>64.71</td><td>71.62</td><td>69.84</td><td>69.51</td></tr>
+<tr><td></td><td>R+I</td><td>60.96</td><td>67.83</td><td>69.08</td><td>69.51</td></tr>
+<tr><td></td><td>R+D</td><td>65.03</td><td>72.54</td><td>67.33</td><td>63.55</td></tr>
+<tr><td></td><td>I+D</td><td>59.36</td><td>66.21</td><td>53.26</td><td>52.86</td></tr>
+<tr><td>w/o MIF</td><td>R+I+D</td><td>63.96</td><td>71.43</td><td>70.75</td><td>70.87</td></tr>
+<tr><td></td><td>R+I</td><td>58.61</td><td>68.95</td><td>68.19</td><td>68.33</td></tr>
+<tr><td></td><td>R+D</td><td>65.67</td><td>73.32</td><td>68.38</td><td>66.09</td></tr>
+<tr><td></td><td>I+D</td><td>58.82</td><td>69.92</td><td>67.43</td><td>68.03</td></tr>
+<tr><td>w/o TKD</td><td>R+I+D</td><td>65.13</td><td>72.08</td><td>70.63</td><td>70.34</td></tr>
+<tr><td></td><td>R+I</td><td>60.53</td><td>69.06</td><td>69.01</td><td>69.01</td></tr>
+<tr><td></td><td>R+D</td><td>65.56</td><td>75.96</td><td>67.92</td><td>63.01</td></tr>
+<tr><td></td><td>I+D</td><td>58.93</td><td>68.17</td><td>56.17</td><td>59.71</td></tr>
+<tr><td>Ours</td><td>R+I+D</td><td>66.20</td><td>73.16</td><td>71.76</td><td>71.71</td></tr>
+<tr><td></td><td>R+I</td><td>62.78</td><td>70.36</td><td>70.05</td><td>69.98</td></tr>
+<tr><td></td><td>R+D</td><td>66.74</td><td>75.64</td><td>69.84</td><td>67.03</td></tr>
+<tr><td></td><td>I+D</td><td>60.11</td><td>69.13</td><td>57.53</td><td>60.97</td></tr>
+</tbody></table></div>
+
+      <div class="columns" style="margin-top: 1rem;">
+        <div class="column">
+          <figure class="image">
+            <img src="./assets/xxx_quantitative.png" alt="Quantitative figure (placeholder)">
+          </figure>
+          <p class="is-size-7 has-text-grey">Placeholder: <code>./assets/xxx_quantitative.png</code> (main table / quantitative results figure).</p>
+        </div>
+        <div class="column">
+          <figure class="image">
+            <img src="./assets/xxx_qualitative.png" alt="Qualitative figure (placeholder)">
+          </figure>
+          <p class="is-size-7 has-text-grey">Placeholder: <code>./assets/xxx_qualitative.png</code> (qualitative examples).</p>
+        </div>
       </div>
     </div>
   </div>
@@ -212,24 +276,26 @@ Extensive experiments demonstrate the effectiveness and generalization of the pr
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{your2025mgfdk,
-  author    = {Jingjing Wu and ...},
-  title     = {MGFKD: Multi-modal Gait Fusion with Knowledge Distillation for Depression Recognition},
-  year      = {2025},
+    <p class="is-size-7 has-text-grey">
+      Replace <code>Anonymous Authors</code> and update the final citation fields once the paper is publicly available.
+    </p>
+    <pre><code>@inproceedings{mgd2026,
+  title     = {Depression Recognition With Arbitrary Gait Modalities: A Multi-Modal Dataset and a Unified Framework},
+  author    = {Anonymous Authors},
+  booktitle = {Proceedings of the {&quot;IJCAI&quot;} 2026},
+  year      = {2026}
 }</code></pre>
   </div>
 </section>
 
-<!-- 页脚：图标 + 致谢 -->
+<!-- Footer -->
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <!-- 论文 PDF 图标 -->
-      <a class="icon-link" href="./static/videos/loopgaussian_paper.pdf">
+      <a class="icon-link" href="paper.pdf">
         <i class="fas fa-file-pdf"></i>
       </a>
-      <!-- GitHub 图标（占位） -->
-      <a class="icon-link" href="https://github.com/" class="external-link" disabled>
+      <a class="icon-link" href="https://github.com/" class="external-link">
         <i class="fab fa-github"></i>
       </a>
     </div>
@@ -238,10 +304,13 @@ Extensive experiments demonstrate the effectiveness and generalization of the pr
       <div class="column is-8">
         <div class="content">
           <p>
-            Thanks to <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> for the template.
+            Template adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
           </p>
         </div>
       </div>
     </div>
   </div>
 </footer>
+
+</body>
+</html>
