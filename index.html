@@ -149,7 +149,9 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Depression, as a prevalent mental health disorder, requires an efficient, objective, and scalable approach to automated recognition.This paper presents a novel depression recognition framework named MGFKD (Multi-modal Gait Fusion with Knowledge Distillation), which jointly models RGB, infrared (IR) and depth gait data. MGFKD takes temporal gait templates as input and employs modality-specific subnetworks to extract features independently. These multi-modal features are concatenated along the channel dimension and further refined through a Transformer-based fusion module to enhance high-level representation learning. To effectively handle modality-missing scenarios, a parallel training mechanism for bi-modal and tri-modal configurations is introduced. Additionally, a knowledge distillation (KD) strategy based on minimizing the mean squared error between optimized features is incorporated to improve performance under bi-modal input conditions. Experimental results on a gait dataset comprising 300 healthy, 200 subthreshold, and 97 depressed individuals demonstrate the effectiveness of MGFKD in three-class depression recognition tasks, with superior performance in binary classification settings. Furthermore, a series of ablation studies validate the effectiveness of the proposed architectural components and training strategies.
+            Depression poses a major global public health challenge, highlighting the need for early and objective detection. Gait has emerged as a promising non-invasive behavioral indicator, yet existing gait-based approaches are limited by single-modality data and poor robustness to modality absence.
+To address these limitations, we construct a large-scale multi-modal gait dataset for depression recognition, incorporating RGB, depth, and infrared (IR) modalities to exploit their complementary strengths. Building upon this dataset, we propose a unified end-to-end framework that supports arbitrary modality combinations. The framework integrates a trust-driven hierarchical knowledge distillation strategy, where distillation weights are adaptively guided by the teacher’s learning state, enabling effective knowledge transfer at both modality and fusion levels without multi-stage training.
+Extensive experiments demonstrate the effectiveness and generalization of the proposed dataset and unified framework, establishing a practical and reliable solution for depression recognition under real-world modality-incomplete scenarios. The dataset and code are provided in the supplementary material.
           </p>
         </div>
       </div>
@@ -170,7 +172,7 @@
     <h2 class="title is-3 has-text-centered">Method</h2>
     <figure class="paper-figure has-text-centered">
       <!-- 将你的框架图放到 ./static/images/framework.png -->
-      <img src="./assets/framework.png" alt="Framework Diagram" style="display:inline-block;max-width:100%;height:auto;"/>
+      <img src="./assets/Overview_01.png" alt="Framework Diagram" style="display:inline-block;max-width:100%;height:auto;"/>
       <figcaption>
         Pipeline: preprocessing → per-modality encoders → fusion → Transformer head → classifier, with cross-mode MSE guidance for missing-modality robustness.
       </figcaption>
