@@ -144,67 +144,34 @@ Extensive experiments demonstrate the effectiveness and generalization of the pr
   </div>
 </section>
 
-<!-- Dataset -->
-<section class="section">
+
+
+
+<!-- Dataset & Method -->
+<section class="section" id="dataset-method">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Multi-modal Gait Depression (MGD) Dataset</h2>
+    <h2 class="title is-3 has-text-centered">Dataset &amp; Method</h2>
+
     <div class="content">
+      <!-- Combined text -->
+      <h3 class="title is-5">Multi-modal Gait Depression (MGD) Dataset</h3>
       <p>
         The MGD dataset is collected in an indoor corridor with synchronized ceiling-mounted RGB, infrared (IR), and depth sensors.
         It contains recordings from <b>597 participants</b> and spans diverse real-world factors such as lighting variability.
       </p>
-      <div class="columns is-vcentered">
-        <div class="column">
-          <figure class="image">
-            <img src="./assets/xxx_dataset_setup.png" alt="Dataset setup (placeholder)">
-          </figure>
-          <p class="is-size-7 has-text-grey">Placeholder: <code>./assets/xxx_dataset_setup.png</code> (data collection protocol / setup).</p>
-        </div>
-        <div class="column">
-          <figure class="image">
-            <img src="./assets/xxx_modalities.png" alt="Modality examples (placeholder)">
-          </figure>
-          <p class="is-size-7 has-text-grey">Placeholder: <code>./assets/xxx_modalities.png</code> (RGB / IR / depth examples).</p>
-        </div>
-      </div>
-      <p class="is-size-7 has-text-grey">
-        You can replace the placeholders with the corresponding figures from your paper (e.g., intro / dataset figures).
-      </p>
-    </div>
-  </div>
-</section>
 
-<!-- Method -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Method</h2>
-    <div class="content">
+      <h3 class="title is-5">Overview</h3>
       <p>
-        Our framework is formulated in a teacher–student paradigm. The teacher operates on complete RGB/IR/depth inputs to learn
+        Our framework follows a teacher–student paradigm. The teacher operates on complete RGB/IR/depth inputs to learn
         discriminative multimodal representations, while the student is trained to handle missing-modality inputs and is guided
         by feature-level distillation to compensate for absent signals.
       </p>
 
       <h3 class="title is-5">Modality Interaction and Fusion (MIF)</h3>
       <p>
-        The MIF module explicitly models cross-modal interactions and modality-specific temporal dynamics, and produces fused
+        The MIF module explicitly models cross-modal interactions and modality-specific temporal dynamics, producing fused
         representations for downstream classification.
       </p>
-
-      <div class="columns is-vcentered">
-        <div class="column">
-          <figure class="image">
-            <img src="./assets/xxx_framework.png" alt="Overall framework (placeholder)">
-          </figure>
-          <p class="is-size-7 has-text-grey">Placeholder: <code>./assets/xxx_framework.png</code> (overall framework).</p>
-        </div>
-        <div class="column">
-          <figure class="image">
-            <img src="./assets/xxx_mif.png" alt="MIF module (placeholder)">
-          </figure>
-          <p class="is-size-7 has-text-grey">Placeholder: <code>./assets/xxx_mif.png</code> (MIF module).</p>
-        </div>
-      </div>
 
       <h3 class="title is-5">Trust-driven Hierarchical Knowledge Distillation</h3>
       <p>
@@ -212,10 +179,154 @@ Extensive experiments demonstrate the effectiveness and generalization of the pr
         signal based on the reliability of generated missing-modality features, and apply the constraints hierarchically across
         intermediate and fused representations.
       </p>
+
+      <!-- Slider styles (scoped) -->
+      <style>
+        /* Slider container */
+        .dm-slider-wrap{
+          position: relative;
+          margin-top: 1.25rem;
+        }
+        .dm-slider{
+          display: flex;
+          gap: 1rem;
+          overflow-x: auto;
+          scroll-behavior: smooth;
+          padding: 0.5rem 2.75rem; /* leave room for arrows */
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none; /* Firefox hide */
+        }
+        .dm-slider::-webkit-scrollbar{ display:none; } /* Chrome hide */
+
+        /* Each card */
+        .dm-card{
+          flex: 0 0 auto;
+          width: 320px;        /* unified card width */
+        }
+        .dm-figure{
+          width: 100%;
+          height: 200px;       /* unified image height */
+          border-radius: 12px;
+          overflow: hidden;
+          background: #f5f5f5;
+        }
+        .dm-figure img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;   /* cover: fills box; use contain if you prefer no cropping */
+          display: block;
+        }
+        .dm-cap{
+          margin-top: 0.5rem;
+          font-size: 0.85rem;
+          color: #7a7a7a;
+        }
+
+        /* Arrow buttons */
+        .dm-nav{
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 2.25rem;
+          height: 2.25rem;
+          border-radius: 999px;
+          border: 1px solid rgba(0,0,0,0.12);
+          background: rgba(255,255,255,0.95);
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 2;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+          user-select: none;
+        }
+        .dm-nav:hover{ background: #ffffff; }
+        .dm-nav.left{ left: 0.25rem; }
+        .dm-nav.right{ right: 0.25rem; }
+
+        /* Responsive tweaks */
+        @media (max-width: 768px){
+          .dm-card{ width: 260px; }
+          .dm-figure{ height: 170px; }
+          .dm-slider{ padding-left: 2.5rem; padding-right: 2.5rem; }
+        }
+      </style>
+
+      <!-- Slider UI -->
+      <div class="dm-slider-wrap">
+        <button class="dm-nav left" type="button" aria-label="Scroll left"
+                onclick="dmScrollBy('dm-slider-1', -1)">
+          &#8249;
+        </button>
+
+        <div class="dm-slider" id="dm-slider-1">
+          <!-- Dataset images -->
+          <div class="dm-card">
+            <div class="dm-figure">
+              <img src="./assets/xxx_dataset_setup.png" alt="Dataset setup (placeholder)">
+            </div>
+            <div class="dm-cap">Dataset setup (placeholder): <code>./assets/xxx_dataset_setup.png</code></div>
+          </div>
+
+          <div class="dm-card">
+            <div class="dm-figure">
+              <img src="./assets/xxx_modalities.png" alt="Modality examples (placeholder)">
+            </div>
+            <div class="dm-cap">RGB / IR / depth examples (placeholder): <code>./assets/xxx_modalities.png</code></div>
+          </div>
+
+          <!-- Method images -->
+          <div class="dm-card">
+            <div class="dm-figure">
+              <img src="./assets/xxx_framework.png" alt="Overall framework (placeholder)">
+            </div>
+            <div class="dm-cap">Overall framework (placeholder): <code>./assets/xxx_framework.png</code></div>
+          </div>
+
+          <div class="dm-card">
+            <div class="dm-figure">
+              <img src="./assets/xxx_mif.png" alt="MIF module (placeholder)">
+            </div>
+            <div class="dm-cap">MIF module (placeholder): <code>./assets/xxx_mif.png</code></div>
+          </div>
+
+          <!-- You can add more cards here -->
+          <!--
+          <div class="dm-card">
+            <div class="dm-figure">
+              <img src="./assets/xxx_distill.png" alt="Distillation (placeholder)">
+            </div>
+            <div class="dm-cap">Distillation (placeholder): <code>./assets/xxx_distill.png</code></div>
+          </div>
+          -->
+        </div>
+
+        <button class="dm-nav right" type="button" aria-label="Scroll right"
+                onclick="dmScrollBy('dm-slider-1', 1)">
+          &#8250;
+        </button>
+      </div>
+
+      <p class="is-size-7 has-text-grey" style="margin-top:0.75rem;">
+        Replace the placeholders with your paper figures. All images are displayed in a unified size; use arrows to scroll horizontally.
+      </p>
+
+      <!-- Slider JS (put once; safe if you keep only one copy) -->
+      <script>
+        function dmScrollBy(sliderId, direction){
+          const el = document.getElementById(sliderId);
+          if(!el) return;
+          // Scroll roughly by 1 card width (+gap), responsive-friendly
+          const card = el.querySelector('.dm-card');
+          const step = card ? (card.offsetWidth + 16) : 340;
+          el.scrollBy({ left: direction * step, behavior: 'smooth' });
+        }
+      </script>
     </div>
   </div>
 </section>
 
+          
 <!-- Results -->
 <section class="section">
   <div class="container is-max-desktop">
