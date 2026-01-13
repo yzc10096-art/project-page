@@ -194,7 +194,8 @@ Extensive experiments demonstrate the effectiveness and generalization of the pr
         .dm-figure img{
           width: 100%;
           height: 100%;
-          object-fit: cover;   /* cover: fills box; use contain if you prefer no cropping */
+          object-fit: contain;   /* 等比例完整显示 */
+          object-position: center;   /* cover: fills box; use contain if you prefer no cropping */
           display: block;
         }
         .dm-cap{
