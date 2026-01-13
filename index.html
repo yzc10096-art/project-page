@@ -160,25 +160,6 @@ Extensive experiments demonstrate the effectiveness and generalization of the pr
         It contains recordings from <b>597 participants</b> and spans diverse real-world factors such as lighting variability.
       </p>
 
-      <h3 class="title is-5">Overview</h3>
-      <p>
-        Our framework follows a teacher–student paradigm. The teacher operates on complete RGB/IR/depth inputs to learn
-        discriminative multimodal representations, while the student is trained to handle missing-modality inputs and is guided
-        by feature-level distillation to compensate for absent signals.
-      </p>
-
-      <h3 class="title is-5">Modality Interaction and Fusion (MIF)</h3>
-      <p>
-        The MIF module explicitly models cross-modal interactions and modality-specific temporal dynamics, producing fused
-        representations for downstream classification.
-      </p>
-
-      <h3 class="title is-5">Trust-driven Hierarchical Knowledge Distillation</h3>
-      <p>
-        To stabilize distillation under missing modalities, we introduce a trust-driven mechanism that weights the distillation
-        signal based on the reliability of generated missing-modality features, and apply the constraints hierarchically across
-        intermediate and fused representations.
-      </p>
 
       <!-- Slider styles (scoped) -->
       <style>
@@ -265,14 +246,14 @@ Extensive experiments demonstrate the effectiveness and generalization of the pr
             <div class="dm-figure">
               <img src="./assets/xxx_dataset_setup.png" alt="Dataset setup (placeholder)">
             </div>
-            <div class="dm-cap">Dataset setup (placeholder): <code>./assets/xxx_dataset_setup.png</code></div>
+            <div class="dm-cap">Dataset setup (placeholder): <code>./assets/xxx_gait_collect.png</code></div>
           </div>
 
           <div class="dm-card">
             <div class="dm-figure">
               <img src="./assets/xxx_modalities.png" alt="Modality examples (placeholder)">
             </div>
-            <div class="dm-cap">RGB / IR / depth examples (placeholder): <code>./assets/xxx_modalities.png</code></div>
+            <div class="dm-cap">RGB / IR / depth examples (placeholder): <code>./assets/alldata_01.png</code></div>
           </div>
 
           <!-- Method images -->
@@ -280,7 +261,7 @@ Extensive experiments demonstrate the effectiveness and generalization of the pr
             <div class="dm-figure">
               <img src="./assets/xxx_framework.png" alt="Overall framework (placeholder)">
             </div>
-            <div class="dm-cap">Overall framework (placeholder): <code>./assets/xxx_framework.png</code></div>
+            <div class="dm-cap">Overall framework (placeholder): <code>./assets/Overview_01.png</code></div>
           </div>
 
           <div class="dm-card">
